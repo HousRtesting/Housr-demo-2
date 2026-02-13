@@ -1,5 +1,10 @@
 "use client";
-
+type Bid = {
+  amount: number;
+  userId: string;
+  timestamp: number;
+  expiresAt: number;
+};
 import React, { useState, useEffect } from 'react';
 import { Heart, X, MapPin, Home, DollarSign, Maximize, Bed, Bath, Star, Filter, MessageCircle, ChevronLeft, ChevronRight, Zap, Camera, Upload, Plus, Trash2, RotateCcw, Check, TrendingUp, Key, Building2, User, GraduationCap, Bell, MessageSquare, Send, Sun, Calendar, Wifi, Car, Wind, Info, Clock, CheckCircle, Box, Video } from 'lucide-react';
 import Logo from "@/components/Logo";
@@ -391,7 +396,7 @@ const App = () => {
   const [reservedProperties, setReservedProperties] = useState<any[]>([]);
   
   // Bidding system states
-  const [propertyBids, setPropertyBids] = useState({}); // { propertyId: { amount, userId, timestamp, expiresAt } }
+  const [propertyBids, setPropertyBids] = useState<Record<number, Bid>>({}); // { propertyId: { amount, userId, timestamp, expiresAt } }
   const [bidAmount, setBidAmount] = useState('');
   const [showBidModal, setShowBidModal] = useState(false);
   
@@ -448,7 +453,9 @@ useEffect(() => {
       const updatedBids = { ...propertyBids };
       let hasChanges = false;
       
-      Object.keys(updatedBids).forEach(propId => {
+      Object.keys(updatedBids).forEach((propIdStr) => {
+        const propId = Number(propIdStr);
+
         if (updatedBids[propId].expiresAt < now) {
           delete updatedBids[propId];
           hasChanges = true;
