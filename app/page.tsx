@@ -439,7 +439,7 @@ useEffect(() => {
 
     return () => clearTimeout(timer);
   }
-}, [onboardingComplete, userRole, preferences.region]); // ✅ toegevoegd
+}, [onboardingComplete, userRole]); // ✅ toegevoegd
 
   // Check for expired bids
   useEffect(() => {
