@@ -379,8 +379,8 @@ const App = () => {
   const [landlordPropertyType, setLandlordPropertyType] = useState(null); // 'student' or 'normal'
   const [properties, setProperties] = useState(generateProperties());
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [favorites, setFavorites] = useState([]);
-  const [passedProperties, setPassedProperties] = useState([]);
+  const [favorites, setFavorites] = useState<any[]>([]);
+  const [passedProperties, setPassedProperties] = useState<number[]>([]);
   const [showFilters, setShowFilters] = useState(false);
   const [showFavorites, setShowFavorites] = useState(false);
   const [swipeDirection, setSwipeDirection] = useState(null);
@@ -388,7 +388,7 @@ const App = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [superLikeProperty, setSuperLikeProperty] = useState(null);
-  const [reservedProperties, setReservedProperties] = useState([]);
+  const [reservedProperties, setReservedProperties] = useState<any[]>([]);
   
   // Bidding system states
   const [propertyBids, setPropertyBids] = useState({}); // { propertyId: { amount, userId, timestamp, expiresAt } }
@@ -396,20 +396,20 @@ const App = () => {
   const [showBidModal, setShowBidModal] = useState(false);
   
   // Notification states
-  const [notifications, setNotifications] = useState([]);
+ const [notifications, setNotifications] = useState<any[]>([]);
   const [unreadNotifications, setUnreadNotifications] = useState(0);
   const [showNotifications, setShowNotifications] = useState(false);
   
   // Chat states
-  const [conversations, setConversations] = useState([]); // Array of conversation objects
+  const [conversations, setConversations] = useState<any[]>([]); // Array of conversation objects
   const [showChatOverview, setShowChatOverview] = useState(false);
   const [activeConversation, setActiveConversation] = useState(null);
   const [messageInput, setMessageInput] = useState('');
   const [unreadMessages, setUnreadMessages] = useState(0);
   
   // Touch/swipe states
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState(0);
 
