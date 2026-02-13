@@ -367,7 +367,7 @@ const App = () => {
   const TEST_IMAGE = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800";
   
   // Ensure property has valid images
-  const ensureImages = (property) => {
+  const ensureImages = (property: any) => {
     if (!property.images || property.images.length === 0) {
       return { ...property, images: [FALLBACK_IMAGE, FALLBACK_IMAGE, FALLBACK_IMAGE] };
     }
