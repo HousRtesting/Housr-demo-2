@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { Heart, X, MapPin, Home, DollarSign, Maximize, Bed, Bath, Star, Filter, MessageCircle, ChevronLeft, ChevronRight, Zap, Camera, Upload, Plus, Trash2, RotateCcw, Check, TrendingUp, Key, Building2, User, GraduationCap, Bell, MessageSquare, Send, Sun, Calendar, Wifi, Car, Wind, Info, Clock, CheckCircle, Box, Video } from 'lucide-react';
 
 // HousR Logo Component
+import Image from "next/image";
+
 const Logo = ({
   className = "",
   size = "medium",
@@ -12,22 +14,23 @@ const Logo = ({
   size?: "small" | "medium" | "large" | "xlarge";
 }) => {
   const sizes = {
-    small: "h-6",
-    medium: "h-8",
-    large: "h-12",
-    xlarge: "h-20",
+    small: 24,
+    medium: 32,
+    large: 48,
+    xlarge: 80,
   } as const;
 
-  const sizeClass = sizes[size];
+  const px = sizes[size];
 
-  // ... logoSrc blijft hier
   return (
     <div className={`inline-flex items-center ${className}`}>
-      <img
-        src={logoSrc}
+      <Image
+        src="/housr-logo.png"
         alt="HousR Logo"
-        className={sizeClass}
+        width={px}
+        height={px}
         style={{ filter: "brightness(0) invert(1)" }}
+        priority
       />
     </div>
   );
