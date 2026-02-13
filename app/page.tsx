@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Heart, X, MapPin, Home, DollarSign, Maximize, Bed, Bath, Star, Filter, MessageCircle, ChevronLeft, ChevronRight, Zap, Camera, Upload, Plus, Trash2, RotateCcw, Check, TrendingUp, Key, Building2, User, GraduationCap, Bell, MessageSquare, Send, Sun, Calendar, Wifi, Car, Wind, Info, Clock, CheckCircle, Box, Video } from 'lucide-react';
-import Logo from "@/app/components/Logo";
+import Logo from "@/components/Logo";
   
 // Mock real estate data
 const generateProperties = () => [
